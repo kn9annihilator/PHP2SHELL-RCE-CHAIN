@@ -1,4 +1,4 @@
-# PHP2Shell — CVE-2026-109618 / CVE-2026-109619
+# PHP2Shell CVE-2026-109618 / CVE-2026-109619
 
 Reproduction of the PHP2Shell Out-Of-Memory (OOM) bailout RCE chain on a pinned, isolated `php:8.4.26-apache` (mod_php) target. 
 
