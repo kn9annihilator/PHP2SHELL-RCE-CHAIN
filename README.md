@@ -86,8 +86,8 @@ AH00052: child pid 25 exit signal Segmentation fault (11)
 GET /uploads/p.php 200 1088
 ```
 
-https://screenshots/fig-04-proof-page.png
-(The attacker-placed PHP file executing on the server)
+![Proof of Execution](./screenshots/fig-04-proof-page.png)
+*(The attacker-placed PHP file executing on the server)*
 
 ## Disclaimer
 
