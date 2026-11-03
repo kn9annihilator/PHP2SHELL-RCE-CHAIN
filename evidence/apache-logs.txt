@@ -1,0 +1,65 @@
+php2shell-poc-target  | AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.18.0.2. Set the 'ServerName' directive globally to suppress this message
+php2shell-poc-target  | AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.18.0.2. Set the 'ServerName' directive globally to suppress this message
+php2shell-poc-target  | [Tue Nov 03 06:59:25.042012 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00163: Apache/2.4.69 (Debian) PHP/8.4.26 configured -- resuming normal operations
+php2shell-poc-target  | [Tue Nov 03 06:59:25.042102 2026] [core:notice] [pid 1:tid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:06:59:48 +0000] "GET / HTTP/1.1" 200 13610 "-" "curl/8.22.0"
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:06:59:48 +0000] "GET /guide.php HTTP/1.1" 200 2892 "-" "curl/8.22.0"
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:07:00:08 +0000] "GET / HTTP/1.1" 200 3136 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0"
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:07:00:08 +0000] "GET /journal.css HTTP/1.1" 200 4653 "http://127.0.0.1:8088/" "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0"
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:07:00:08 +0000] "GET /assets/Manrope-700.ttf HTTP/1.1" 200 96475 "http://127.0.0.1:8088/journal.css" "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0"
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:07:00:08 +0000] "GET /assets/market-rickshaw.webp HTTP/1.1" 200 50688 "http://127.0.0.1:8088/" "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0"
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:07:00:08 +0000] "GET /favicon.ico HTTP/1.1" 404 529 "http://127.0.0.1:8088/" "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0"
+php2shell-poc-target  | [Tue Nov 03 07:00:09.129475 2026] [mpm_prefork:error] [pid 1:tid 1] AH00161: server reached MaxRequestWorkers setting, consider raising the MaxRequestWorkers setting
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:07:00:13 +0000] "GET /assets/market-hands.webp HTTP/1.1" 200 103924 "http://127.0.0.1:8088/" "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0"
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:07:00:13 +0000] "GET /assets/market-aubergine.webp HTTP/1.1" 200 42542 "http://127.0.0.1:8088/" "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0"
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:07:00:18 +0000] "GET /assets/market-hero.webp HTTP/1.1" 200 332851 "http://127.0.0.1:8088/" "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0"
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:07:00:23 +0000] "GET /assets/market-lanes.webp HTTP/1.1" 200 67288 "http://127.0.0.1:8088/" "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0"
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:07:00:28 +0000] "GET /assets/market-greens.webp HTTP/1.1" 200 120291 "http://127.0.0.1:8088/" "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0"
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:07:00:34 +0000] "GET /assets/market-rain.webp HTTP/1.1" 200 142921 "http://127.0.0.1:8088/" "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0"
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:07:00:39 +0000] "GET /assets/market-shops.webp HTTP/1.1" 200 78174 "http://127.0.0.1:8088/" "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0"
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:07:01:18 +0000] "GET / HTTP/1.1" 200 13610 "-" "curl/8.22.0"
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:07:02:27 +0000] "GET /status.php HTTP/1.1" 200 1501 "-" "curl/8.22.0"
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:07:04:03 +0000] "POST /index.php HTTP/1.1" 200 693 "-" "-"
+php2shell-poc-target  | zend_mm_heap corrupted
+php2shell-poc-target  | [Tue Nov 03 07:04:04.120077 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 17 exit signal Abort (6)
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:07:04:05 +0000] "POST /index.php HTTP/1.1" 200 693 "-" "-"
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:07:04:05 +0000] "POST /index.php HTTP/1.1" 200 25884 "-" "-"
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:07:04:05 +0000] "POST /index.php HTTP/1.1" 200 693 "-" "-"
+php2shell-poc-target  | zend_mm_heap corrupted
+php2shell-poc-target  | [Tue Nov 03 07:04:06.123449 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 38 exit signal Abort (6)
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:07:04:07 +0000] "POST /index.php HTTP/1.1" 200 693 "-" "-"
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:07:04:07 +0000] "POST /index.php HTTP/1.1" 200 14258 "-" "-"
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:07:04:07 +0000] "POST /index.php HTTP/1.1" 200 693 "-" "-"
+php2shell-poc-target  | zend_mm_heap corrupted
+php2shell-poc-target  | [Tue Nov 03 07:04:08.128398 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 39 exit signal Abort (6)
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:07:04:09 +0000] "POST /index.php HTTP/1.1" 200 367 "-" "-"
+php2shell-poc-target  | [Tue Nov 03 07:04:10.132446 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 40 exit signal Segmentation fault (11)
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:07:04:11 +0000] "GET /uploads/p.php HTTP/1.1" 200 1088 "-" "Python-urllib/3.14"
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:07:05:10 +0000] "GET /status.php HTTP/1.1" 302 227 "-" "curl/8.22.0"
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:07:28:38 +0000] "GET / HTTP/1.1" 200 3136 "-" "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0"
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:07:28:38 +0000] "GET /journal.css HTTP/1.1" 200 4653 "http://127.0.0.1:8088/" "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0"
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:07:28:39 +0000] "GET /assets/Manrope-700.ttf HTTP/1.1" 200 96475 "http://127.0.0.1:8088/journal.css" "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0"
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:07:28:44 +0000] "GET /assets/market-hero.webp HTTP/1.1" 200 332851 "http://127.0.0.1:8088/" "Mozilla/5.0 (X11; Linux x86_64; rv:153.0) Gecko/20100101 Firefox/153.0"
+php2shell-poc-target  | AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.18.0.2. Set the 'ServerName' directive globally to suppress this message
+php2shell-poc-target  | AH00558: apache2: Could not reliably determine the server's fully qualified domain name, using 172.18.0.2. Set the 'ServerName' directive globally to suppress this message
+php2shell-poc-target  | [Tue Nov 03 11:36:03.118793 2026] [mpm_prefork:notice] [pid 1:tid 1] AH00163: Apache/2.4.69 (Debian) PHP/8.4.26 configured -- resuming normal operations
+php2shell-poc-target  | [Tue Nov 03 11:36:03.118882 2026] [core:notice] [pid 1:tid 1] AH00094: Command line: 'apache2 -D FOREGROUND'
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:11:37:38 +0000] "POST /index.php HTTP/1.1" 200 693 "-" "-"
+php2shell-poc-target  | zend_mm_heap corrupted
+php2shell-poc-target  | [Tue Nov 03 11:37:39.650247 2026] [mpm_prefork:error] [pid 1:tid 1] AH00161: server reached MaxRequestWorkers setting, consider raising the MaxRequestWorkers setting
+php2shell-poc-target  | [Tue Nov 03 11:37:39.650327 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 16 exit signal Abort (6)
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:11:37:40 +0000] "POST /index.php HTTP/1.1" 200 693 "-" "-"
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:11:37:40 +0000] "POST /index.php HTTP/1.1" 200 25846 "-" "-"
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:11:37:40 +0000] "POST /index.php HTTP/1.1" 200 693 "-" "-"
+php2shell-poc-target  | zend_mm_heap corrupted
+php2shell-poc-target  | [Tue Nov 03 11:37:41.655613 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 23 exit signal Abort (6)
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:11:37:42 +0000] "POST /index.php HTTP/1.1" 200 693 "-" "-"
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:11:37:42 +0000] "POST /index.php HTTP/1.1" 200 14256 "-" "-"
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:11:37:42 +0000] "POST /index.php HTTP/1.1" 200 693 "-" "-"
+php2shell-poc-target  | zend_mm_heap corrupted
+php2shell-poc-target  | [Tue Nov 03 11:37:43.659704 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 24 exit signal Abort (6)
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:11:37:44 +0000] "POST /index.php HTTP/1.1" 200 367 "-" "-"
+php2shell-poc-target  | [Tue Nov 03 11:37:45.664134 2026] [core:notice] [pid 1:tid 1] AH00052: child pid 25 exit signal Segmentation fault (11)
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:11:37:46 +0000] "GET /uploads/p.php HTTP/1.1" 200 1088 "-" "Python-urllib/3.14"
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:11:44:27 +0000] "GET /uploads/p.php HTTP/1.1" 200 1069 "-" "curl/8.22.0"
+php2shell-poc-target  | 172.18.0.1 - - [03/Nov/2026:11:44:34 +0000] "HEAD /status.php HTTP/1.1" 302 208 "-" "curl/8.22.0"
