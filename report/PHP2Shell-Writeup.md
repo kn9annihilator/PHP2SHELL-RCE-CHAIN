@@ -1,5 +1,5 @@
 # PHP2Shell: Anatomy of an OOM-Bailout RCE
-### CVE-2026-109618 / CVE-2026-109619 — Technical Writeup
+### CVE-2026-109618 / CVE-2026-109619 Technical Writeup
 
 **Target:** `php:8.4.26-apache` (pinned digest), Apache mod_php, isolated Docker lab  
 **Status:** Exploit chain reproduced successfully; root cause analyzed.
@@ -8,7 +8,7 @@
 
 ## 1. Executive Summary
 
-PHP2Shell is a critical, pre-authentication Remote Code Execution (RCE) vulnerability class affecting PHP versions ≥ 5.4.0. It exploits how the PHP interpreter handles fatal errors—specifically Out-Of-Memory (OOM) conditions—during the parsing of multipart HTTP requests.
+PHP2Shell is a critical, pre-authentication Remote Code Execution (RCE) vulnerability class affecting PHP versions ≥ 5.4.0. It exploits how the PHP interpreter handles fatal errors, specifically Out-Of-Memory (OOM) conditions–during the parsing of multipart HTTP requests.
 
 By manipulating memory pressure and triggering a fatal error at a precise moment, an attacker can interrupt the interpreter's cleanup routines. This leaves dangling pointers in the PHP worker process. Because the Apache `mod_php` SAPI survives these specific fatal errors, subsequent requests consume this corrupted memory, leading to Use-After-Free (UAF), Address Space Layout Randomization (ASLR) bypass, and ultimately arbitrary code execution.
 
@@ -132,7 +132,7 @@ In this lab, ASLR is bypassed because PHP is configured to return errors to the 
 
 
 ## 6. References
-*   **Calif — PHP2Shell Writeup:** https://calif.io/php2shell/
+*   **Calif PHP2Shell Writeup:** https://calif.io/php2shell/
 *   **NIST:** https://nvd.nist.gov/vuln/detail/cve-2026-109618
 *   **Upstream PoC:** https://github.com/eness/php2shell-CVE-2026-109618-CVE-2026-109619-PoC
 *   **SAHMSEC Classroom Lab:** https://github.com/sahmsec/CVE-2026-109618-PHP2SHELL
