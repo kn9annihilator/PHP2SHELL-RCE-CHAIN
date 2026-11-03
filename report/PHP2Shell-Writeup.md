@@ -1,7 +1,6 @@
 # PHP2Shell: Anatomy of an OOM-Bailout RCE
 ### CVE-2026-109618 / CVE-2026-109619 — Technical Writeup
 
- 
 **Target:** `php:8.4.26-apache` (pinned digest), Apache mod_php, isolated Docker lab  
 **Status:** Exploit chain reproduced successfully; root cause analyzed.
 
@@ -32,6 +31,7 @@ Calif's research identifies the core vulnerability pattern:
 
 ### The mod_php vs. PHP-FPM Distinction
 The exploitation path depends entirely on the Server API (SAPI):
+
 *   **PHP-FPM:** If a fatal occurs during startup, FPM deliberately kills the worker process (`FPM_EXIT_SOFTWARE`). The corrupted state is destroyed along with the process.
 *   **Apache mod_php:** If a fatal occurs during request startup, `sapi_apache2.c` still calls `php_request_shutdown()`. Because the `PG(modules_activated)` flag is still false (the fatal happened before normal activation), the Session extension's shutdown hook is skipped. However, **the request heap is still freed**. The Apache child process survives, holding dangling pointers.
 
@@ -63,19 +63,19 @@ With the heap and library base addresses leaked, ASLR is defeated. The attacker 
 
 ## 4. Evidence and Walkthrough
 
-The lab is built using the `php:8.4.26-apache` Docker image. The exploit PoC is written in Python (`php2shell_poc.py`) and uses hardcoded memory offsets (`zif_system` = `0x465370`, `zval_ptr_dtor` = `0x65eb60`) specific to this exact build.
+The lab is built using the `php:8.4.26-apache` Docker image. The exploit PoC is written in Python (`php2shell_poc.py`) and uses hardcoded memory offsets (`zif_system` = `0x465370`, `zval_ptr_dtor` = `0x65EB60`) specific to this exact build.
 
 ### 4.1 Environment Verification
 Before attacking, we verify the SAPI is `mod_php` and not FPM. This is critical, as FPM would terminate the worker and prevent the exploit from working.
 
 ![Lab Topology](../screenshots/fig-01-topology.png)
-*Caption: `docker compose ps` confirming the container is running, and `apache2ctl -M` confirming `php_module (shared)` is loaded.*
+*`docker compose ps` confirming the container is running, and `apache2ctl -M` confirming `php_module (shared)` is loaded.*
 
 ### 4.2 The Exploit Output
 The PoC runs in three distinct stages. 
 
 ![PoC Execution](../screenshots/fig-02-poc-stdout.png)
-*Caption: The PoC terminal output.*
+*The PoC terminal output.*
 
 **What is happening here?**
 *   **Stage 1:** The PoC drives the UAF and extracts the PHP heap address (`0x7fc7b3400000`) from the error responses.
@@ -86,7 +86,7 @@ The PoC runs in three distinct stages.
 We monitor the Apache error logs during the attack to observe the memory corruption in real-time.
 
 ![Apache Logs](../screenshots/fig-03-apache-crash.png)
-*Caption: Apache logs showing the memory corruption.*
+*Apache logs showing the memory corruption.*
 
 **Log Analysis:**
 *   `POST /index.php 200 25846`: The leak! The server sent back a ~25KB response containing memory addresses because the PHP error handler dumped the corrupted heap state.
@@ -99,7 +99,7 @@ We monitor the Apache error logs during the attack to observe the memory corrupt
 The final step is verifying that the command executed and placed an executable PHP file in the webroot.
 
 ![Proof Page](../screenshots/fig-04-proof-page.png)
-*Caption: The attacker-placed file executing on the server.*
+*The attacker-placed file executing on the server.*
 
 The file `/u/p.php` (which is mapped to `/uploads/` in the container) is not served as plain text; it is executed by the PHP module. The 930-byte file on disk yields a 1088-byte HTTP response because the PHP code inside it runs. This proves arbitrary code execution.
 
@@ -107,7 +107,7 @@ The file `/u/p.php` (which is mapped to `/uploads/` in the container) is not ser
 The lab includes a status page that polls the application. 
 
 ![Status Flipped](../screenshots/fig-05-status-flipped.png)
-*Caption: The status page confirming the application state changed.*
+*The status page confirming the application state changed.*
 
 Because the PoC executed `cp /a /u/p.php`, the application was altered. The live-status page detects this change (returning a 302 redirect or a "Content Changed" state), providing a human-readable confirmation that the exploit succeeded.
 
@@ -130,14 +130,11 @@ In this lab, ASLR is bypassed because PHP is configured to return errors to the 
 
 ---
 
-## 6. Remediation
 
-*   **Primary:** Patch PHP immediately. The PHP foundation released fixes in the October 2026 security release.
-*   **Interim:** If patching is impossible, disable the attack surface by setting `session.upload_progress.enabled = 0` in `php.ini`.
-*   **Hardening:** Ensure `display_errors = Off` and `log_errors = On` in production to prevent in-band memory leaks.
-
-## 7. References
+## 6. References
 *   **Calif — PHP2Shell Writeup:** https://calif.io/php2shell/
+*   **NIST:** https://nvd.nist.gov/vuln/detail/cve-2026-109618
 *   **Upstream PoC:** https://github.com/eness/php2shell-CVE-2026-109618-CVE-2026-109619-PoC
 *   **SAHMSEC Classroom Lab:** https://github.com/sahmsec/CVE-2026-109618-PHP2SHELL
+*   **LiveOverFlow Youtube:** https://www.youtube.com/watch?v=7CiZmq2llDg
 *   **PHP Security Release:** October 2026 PHP Advisory (Bug #78876 lineage).
